@@ -1,9 +1,8 @@
 from rest_framework import status
-from rest_framework import viewsets, mixins
-from rest_framework.decorators import action
+from django.shortcuts import get_object_or_404
+from rest_framework import viewsets
 from rest_framework.response import Response
 from django.db.models import Q
-from django.http import Http404
 
 
 from .models import Company, Employee
@@ -14,6 +13,7 @@ from .serializers import (
 
 
 class CompanyViewSet(viewsets.ModelViewSet):
+    """All basic routes for company."""
     queryset = Company.objects.all()
     serializer_class = CompanySerializer
 
@@ -23,7 +23,7 @@ class EmployeeViewSet(viewsets.ModelViewSet):
     serializer_class = EmployeeSerializer
 
     def retrieve(self, request, pk):
-
+        """Retrieve either one user by ID or search for users by Username"""
         try:
             pk = int(pk)
             queryset = Employee.objects.filter(id=pk)
@@ -32,5 +32,6 @@ class EmployeeViewSet(viewsets.ModelViewSet):
             queryset = Employee.objects.filter(
                 Q(username__icontains=pk)
             )
-        serializer = EmployeeSerializer(queryset, many=True, context={'request': request})
-        return Response(serializer.data, status=status.HTTP_200_OK)
+        finally:
+            serializer = EmployeeSerializer(queryset, many=True, context={'request': request})
+            return Response(serializer.data, status=status.HTTP_200_OK)

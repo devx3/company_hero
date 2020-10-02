@@ -3,8 +3,11 @@ from .models import Company, Employee
 
 
 class EmployeeSerializer(serializers.ModelSerializer):
-    company = serializers.HyperlinkedRelatedField(
-        many=True, read_only=True, view_name='companies-detail')
+    company = serializers.PrimaryKeyRelatedField(
+        queryset=Company.objects.all(),
+        many=True,
+        read_only=False,
+    )
 
     class Meta:
         model = Employee
@@ -20,7 +23,6 @@ class EmployeeSerializer(serializers.ModelSerializer):
         extra_kwargs = {
             'password': {
                 'write_only': True,
-                'required': False,
             }
         }
 
