@@ -2,24 +2,9 @@ from rest_framework import serializers
 from .models import Company, Employee
 
 
-class CompanySerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Company
-        fields = (
-            'id',
-            'name',
-            'cnpj',
-            'ie',
-            'opened_date',
-            'city',
-            'region',
-            'email',
-            'phone',
-        )
-
-
 class EmployeeSerializer(serializers.ModelSerializer):
-    company = serializers.PrimaryKeyRelatedField(queryset=Company.objects.all(), many=True)
+    company = serializers.HyperlinkedRelatedField(
+        many=True, read_only=True, view_name='companies-detail')
 
     class Meta:
         model = Employee
@@ -33,24 +18,28 @@ class EmployeeSerializer(serializers.ModelSerializer):
             'company',
         )
         extra_kwargs = {
-            'password': {'write_only': True}
+            'password': {
+                'write_only': True,
+                'required': False,
+            }
         }
 
-    # def save(self):
-    #     employee = Employee(
-    #         email=self.validated_data['email'],
-    #         username=self.validated_data['username'],
-    #         first_name=self.validated_data['first_name'],
-    #         last_name=self.validated_data['last_name'],
-    #         company=self.validated_data['company'],
-    #     )
 
-    #     password = self.validated_data['password']
-    #     password2 = self.validated_data['password2']
+class CompanySerializer(serializers.ModelSerializer):
+    employees = serializers.HyperlinkedRelatedField(
+        many=True, read_only=True, view_name='employees-detail')
 
-    #     if password != password2:
-    #         raise serializers.ValidationError({'password': 'As senhas precisam ser iguais'})
-
-    #     employee.set_password(password)
-    #     employee.save()
-    #     return employee
+    class Meta:
+        model = Company
+        fields = (
+            'id',
+            'name',
+            'cnpj',
+            'ie',
+            'opened_date',
+            'city',
+            'region',
+            'email',
+            'phone',
+            'employees',
+        )

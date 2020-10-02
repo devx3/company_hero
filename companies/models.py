@@ -31,7 +31,7 @@ class Company(Base):
 
 
 class Employee(User):
-    company = models.ManyToManyField(Company, related_name="Employee")
+    company = models.ManyToManyField(Company, related_name="employees")
 
     def __str__(self):
         return self.first_name
