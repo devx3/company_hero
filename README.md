@@ -27,11 +27,11 @@ Você pode acessar a área administrativa da aplicação [aqui](https://companyh
 - **Login:** admin
 - **pass:** 123456
 
-Para de fato utilizar a API, eu criei uma documentação que você pode e deve estar acessando clicando [aqui](https://documenter.getpostman.com/view/7747875/TVRg699E). 
+Para de fato utilizar a API, eu criei uma documentação que você pode e deve acessar clicando [aqui](https://documenter.getpostman.com/view/7747875/TVRg699E). 
 
 ## CONFIGURAÇÃO DA API DO ZERO
 
-Agora que você já deu uma olhada na demo da API, podemos começar com o tutorial de configuração dessa API no seu próprio servidor, caso queira.
+Agora que você já deu uma olhada na demo da API, podemos começar com o tutorial de configuração no seu próprio servidor, caso queira.
 
 ### CLONANDO PROJETO
 
@@ -54,11 +54,11 @@ Ou se o PIP estiver configurado no seu PATH:
 
 ### CONFIGURAÇÃO DO DJANGO
 
-Configurar o django é bem simples, primeiro precisamos migrar os nossos models para que seja criado as tabelas na base dados:
+Configurar o django é bem simples, primeiro precisamos migrar os nossos models para que seja criado as tabelas na base de dados:
 
 `python manage.py migrate`
 
-Depois disso, é necessário criar um super usuário e gerar o Token de acesso para ele
+Depois disso, é necessário criar um super usuário e gerar o Token de acesso para ele.
 
 **Digite:** 
 
