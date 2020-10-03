@@ -35,7 +35,7 @@ Agora que você já deu uma olhada na demo da API, podemos começar com o tutori
 
 ### CLONANDO PROJETO
 
-`https://github.com/devx3/company_hero.git`
+`git clone https://github.com/devx3/company_hero.git`
 
 ### INSTALANDO DEPENDÊNCIAS
 Por estarmos utilizando o Django, temos algumas dependências que precisamos instalar para que tudo funcione 100%. 
