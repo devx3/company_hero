@@ -33,5 +33,7 @@ class EmployeeViewSet(viewsets.ModelViewSet):
                 Q(username__icontains=pk)
             )
         finally:
-            serializer = EmployeeSerializer(queryset, many=True, context={'request': request})
-            return Response(serializer.data, status=status.HTTP_200_OK)
+            if len(queryset) > 0:
+                serializer = EmployeeSerializer(queryset, many=True, context={'request': request})
+                return Response(serializer.data, status=status.HTTP_200_OK)
+            return Response({}, status=status.HTTP_404_NOT_FOUND)
