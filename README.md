@@ -44,6 +44,7 @@ Acesse a pasta do projeto:
 `cd company_hero`
 
 E então execute o comando para instalar as dependências:
+
 `python3 -m pip install -r requirements.txt`
 
 Ou se o PIP estiver configurado no seu PATH:
@@ -59,6 +60,7 @@ Configurar o django é bem simples, primeiro precisamos migrar os nossos models 
 Depois disso, é necessário criar um super usuário e gerar o Token de acesso para ele
 
 **Digite:** 
+
 `python manage.py createsuperuser`
 
 Preencha os seus dados. 
