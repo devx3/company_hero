@@ -41,6 +41,7 @@ Agora que você já deu uma olhada na demo da API, podemos começar com o tutori
 Por estarmos utilizando o Django, temos algumas dependências que precisamos instalar para que tudo funcione 100%. 
 
 Acesse a pasta do projeto: 
+
 `cd company_hero`
 
 E então execute o comando para instalar as dependências:
