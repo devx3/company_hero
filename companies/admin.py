@@ -4,9 +4,9 @@ from .models import Employee, Company
 
 @admin.register(Company)
 class CompanyAdmin(admin.ModelAdmin):
-    list_display = ('id', 'name')
+    list_display = ('id', 'name', 'cnpj', 'opened_date', 'city', 'region', 'email')
 
 
 @admin.register(Employee)
 class EmployeeAdmin(admin.ModelAdmin):
-    list_display = ('id', 'first_name', 'username')
+    list_display = ('first_name', 'last_name', 'username', 'email')

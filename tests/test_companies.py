@@ -160,7 +160,7 @@ class TestCompanies(unittest.TestCase):
         url = '{baseurl}/{id}/'.format(baseurl=self.baseurl, id=2)
         res = requests.get(url=url, headers=self.headers)
         employees = jsonpath(res.json(), 'employees')
-        
+
         self.assertIsInstance(employees, list)
         self.assertGreater(len(employees), 0)
 

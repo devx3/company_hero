@@ -17,7 +17,6 @@ import unittest
 import requests
 from jsonpath import jsonpath
 from faker import Faker
-from utils.cnpj import Cnpj
 
 
 class Testemployees(unittest.TestCase):
