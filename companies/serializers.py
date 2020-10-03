@@ -1,5 +1,6 @@
 from rest_framework import serializers
 from .models import Company, Employee
+from utils.cnpj import Cnpj
 
 
 class EmployeeSerializer(serializers.ModelSerializer):
@@ -45,3 +46,8 @@ class CompanySerializer(serializers.ModelSerializer):
             'phone',
             'employees',
         )
+
+    def validate_cnpj(self, value):
+        if not Cnpj().validate(value):
+            raise serializers.ValidationError('CNPJ Inválido.')
+        return value
