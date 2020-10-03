@@ -2,7 +2,7 @@
 
 Essa é uma API criada para um teste da [Company Hero](https://www.companyhero.com/)
 
-Esse foi um projeto que eu me senti muito feliz em executar. Além de me divertir muito, eu procuro sempre absorver o máximo de conhecimento possível!
+Esse foi um projeto que eu me senti muito feliz em executar. Além de me divertir muito, eu procurei absorver o máximo de conhecimento possível!
 
 
 Bora pra configuração! 
