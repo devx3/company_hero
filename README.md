@@ -102,7 +102,7 @@ e altere a variável `ALLOWED_HOSTS`. Para ambientes de teste, você pode deixar
 
 ### PARA PRODUÇÃO
 
-Você pode definir uma varíavel de ambiente para isso também, seguindo os mesmos passos acima: 
+Primeiro, defina a variável DEBUG como True.
 
 Se estiver ambiente shell, execute: 
 
