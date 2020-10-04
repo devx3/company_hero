@@ -54,6 +54,70 @@ Ou se o PIP estiver configurado no seu PATH:
 
 ### CONFIGURAÇÃO DO DJANGO
 
+Primeiramente é necessário você gerar a sua SECRET_KEY e inserí-la na sua variável de ambiente. Por segurança essa informação não é inserida diretamente no settings.py. 
+
+Para gerar a sua chave, abra um terminal e digite: 
+
+- `python`
+- `import secrets`
+- `secrets.token_hex(24)`
+
+Após esses passos, você terá um resultado parecido com o abaixo: 
+
+`e10ac06ef8b23000c233b584ea46205f99f3b78ae581b384`
+
+Se estiver ambiente shell, execute: 
+
+`export SECRET_KEY="e10ac06ef8b23000c233b584ea46205f99f3b78ae581b384"`
+
+Se estiver no windows, execute: 
+
+`set SECRET_KEY="e10ac06ef8b23000c233b584ea46205f99f3b78ae581b384"`
+
+Lembre-se que o comando para Windows criará essas variáveis TEMPORARIAMENTE no terminal ativo. Ou seja, assim que você fechar o console, essas variáveis serão excluídas. 
+
+Para torná-la permanente, segue um tutorial para isso: 
+
+https://devcontent.com.br/artigos/windows/o-que-sao-como-alterar-criar-excluir-variaveis-de-ambiente
+
+Agora, precisamos alterar a variável DEBUG. 
+
+### PARA PRODUÇÃO
+
+Você pode definir uma varíavel de ambiente para isso também, seguindo os mesmos passos acima: 
+
+Se estiver ambiente shell, execute: 
+
+`export DEBUG="True"`
+
+Se estiver no windows, execute: 
+
+`set DEBUG="True"`
+
+Abra o arquivo `settings.py` dentro da pasta heroes e altere a variável `ALLOWED_HOSTS` para: 
+
+`ALLOWED_HOSTS = ['https://seudominioaqui.com']`
+
+### PARA AMBIENTE DE DESENVOLVIMENTO
+
+Abra o arquivo `settings.py` dentro da pasta heroes e aqui você vai alterar duas variáveis.
+
+A primeira é a DEBUG: 
+
+Altere de:
+
+`DEBUG = os.environ.get('DEBUG') == True`
+
+para: 
+
+`DEBUG = True`
+
+e altere a variável `ALLOWED_HOSTS`. Para ambientes de teste, você pode deixar essa variável da seguinte forma: 
+
+`ALLOWED_HOSTS = []`
+
+### MIGRAÇÕES
+
 Configurar o django é bem simples, primeiro precisamos migrar os nossos models para que seja criado as tabelas na base de dados:
 
 `python manage.py migrate`
