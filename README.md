@@ -141,7 +141,7 @@ Nessa etapa você vai precisar acessar a área administrativa.
 Nessa tela você terá a listagem de todos os tokens gerados para a sua aplicação. 
 
 4. Clique no botão **ADICIONAR TOKEN** no canto superior direito
-5. Selecione o usuário que você acabou de criar e clicar em Salvar
+5. Selecione o usuário que você acabou de criar e clique em Salvar
 6. Feito! O seu token foi gerado e você deve guardá-lo em segurança
 
 Agora que você já possui um Token de Acesso, você já pode utilizar a API.
