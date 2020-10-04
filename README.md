@@ -82,22 +82,6 @@ https://devcontent.com.br/artigos/windows/o-que-sao-como-alterar-criar-excluir-v
 
 Agora, precisamos alterar a variável DEBUG. 
 
-### PARA PRODUÇÃO
-
-Você pode definir uma varíavel de ambiente para isso também, seguindo os mesmos passos acima: 
-
-Se estiver ambiente shell, execute: 
-
-`export DEBUG="True"`
-
-Se estiver no windows, execute: 
-
-`set DEBUG="True"`
-
-Abra o arquivo `settings.py` dentro da pasta heroes e altere a variável `ALLOWED_HOSTS` para: 
-
-`ALLOWED_HOSTS = ['https://seudominioaqui.com']`
-
 ### PARA AMBIENTE DE DESENVOLVIMENTO
 
 Abra o arquivo `settings.py` dentro da pasta heroes e aqui você vai alterar duas variáveis.
@@ -115,6 +99,22 @@ para:
 e altere a variável `ALLOWED_HOSTS`. Para ambientes de teste, você pode deixar essa variável da seguinte forma: 
 
 `ALLOWED_HOSTS = []`
+
+### PARA PRODUÇÃO
+
+Você pode definir uma varíavel de ambiente para isso também, seguindo os mesmos passos acima: 
+
+Se estiver ambiente shell, execute: 
+
+`export DEBUG="True"`
+
+Se estiver no windows, execute: 
+
+`set DEBUG="True"`
+
+Abra o arquivo `settings.py` dentro da pasta heroes e altere a variável `ALLOWED_HOSTS` para: 
+
+`ALLOWED_HOSTS = ['https://seudominioaqui.com']`
 
 ### MIGRAÇÕES
 
